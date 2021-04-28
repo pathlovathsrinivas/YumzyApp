@@ -1,0 +1,41 @@
+<div class="main-div">
+  <mat-card class="example-card">
+    <mat-card-header class="main-div">
+
+      <mat-card-title style="margin-top: 15px;">
+        Sign in
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <form novalidate>
+        <mat-form-field class="main-div">
+          <input matInput placeholder="E-mail" name="email" type="email" [(ngModel)]="userLoginModel.email"
+            #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+
+          <mat-error *ngIf="email.invalid && (email.dirty ||email.touched)">
+            <div *ngIf="email.errors['required']">
+              <small>This field is required</small>
+            </div>
+            <div *ngIf="email.errors.pattern">
+              <small>this is not a valid Email!!!</small>
+            </div>
+          </mat-error>
+
+        </mat-form-field>
+        <mat-form-field class="main-div">
+          <input matInput placeholder="Password" name="password" type="password" [(ngModel)]="userLoginModel.password"
+            #password="ngModel">
+          <mat-error *ngIf="password.invalid && (password.dirty ||password.touched)">
+            <div *ngIf="password.errors['required']">
+              <small>This field is required</small>
+            </div>
+          </mat-error>
+        </mat-form-field>
+        <button class="light-button" mat-flat-button color="primary" (click)="login();">Login</button>
+
+      </form>
+
+    </mat-card-actions>
+  </mat-card>
+
+</div>

@@ -1,0 +1,53 @@
+<div class="main-div">
+  <mat-card class="example-card" *ngIf="customerInfo">
+    <mat-card-header>
+      <i class="material-icons" style="margin-left: -40px !important;">person</i>
+      <h3 style="font-weight:bold;margin-left: 4px;">Customer Information</h3>
+    </mat-card-header>
+    <mat-card-content>
+
+      <p> <strong>Name :</strong>{{customerInfo.customerName}}</p>
+      <p> <strong>Number : </strong> {{customerInfo.phoneNo}}</p>
+      <p> <strong>Email : </strong> {{customerInfo.emailId}}</p>
+      <p> <strong>Address : </strong>{{customerInfo.address.fullAddress}}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="example-card" style="margin-left: 14px !important;" *ngIf="orderDataSource">
+    <table>
+      <tr>
+        <td style="font-weight:bolder !important;width:27%">Order Date</td>
+        <td style="font-weight:bolder;width:3%">{{orderDetails.orderDate | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+    </table>
+    <i class="material-icons" style="margin-left: -40px !important;"></i>
+    <h3 class="order">Order Details</h3>
+    <mat-card-content>
+      <table>
+        <tr *ngFor="let items of orderDataSource;">
+          <td style="font-weight: bold; width:22%">{{items.orderName}}</td>
+          <td style="width:5%">X {{items.quantity}}</td>
+          <td style="width:3%">{{items.value | currency: 'INR'}}</td>
+        </tr>
+      </table>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
+<div class="main-div">
+  <mat-card class="example-card" style="margin-left: 14px !important;" *ngIf="restaurantStatus">
+    <mat-card-header>
+      <h3 style="font-weight:bold;margin-left: 4px; margin-left: -30px !important;">
+        {{restaurantStatus.outletName}}({{restaurantStatus.locality}})</h3>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Phone No : </strong> {{restaurantStatus.mobile}}</p>
+      <p> <strong>Alternate No : </strong> {{restaurantStatus.mobile2}},{{restaurantStatus.mobile3}}</p>
+      <p> <strong>Email : </strong> {{restaurantStatus.email}}</p>
+      <p> <strong>Address : </strong> {{restaurantStatus.address.addressLine}}</p>
+    </mat-card-content>
+
+  </mat-card>
+
+</div>
