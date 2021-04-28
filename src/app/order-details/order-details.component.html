@@ -13,7 +13,7 @@
     </mat-card-content>
   </mat-card>
 
-  <mat-card class="example-card" style="margin-left: 14px !important;" *ngIf="orderDataSource">
+  <mat-card class="example-card" style="margin-left: 14px !important;" *ngIf="orderDataSource && orderDataSource.length > 0">
     <table>
       <tr>
         <td style="font-weight:bolder !important;width:27%">Order Date</td>
